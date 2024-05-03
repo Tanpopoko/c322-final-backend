@@ -1,10 +1,7 @@
 name: Docker Image CI for GHCR
 
 on:
-  push:
-   branches:
-     - master
-
+  push
 
 jobs:
   build_and_publish:
@@ -36,6 +33,6 @@ jobs:
 
       - name: Build and push the image
         run: |
-          docker login --username tanpopoko --password ${{secrets.ACCESS_TOKEN}} ghcr.io
-          docker build -t ghcr.io/tanpopoko/flowers-service:latest --file Dockerfile .  
-          docker push ghcr.io/tanpopoko/flowers-service:latest 
+          docker login --username tanpopoko --password ${{secrets.ACCESS_TOKEN_FINAL}} ghcr.io
+          docker build -t ghcr.io/tanpopoko/c322-final-backend:latest --file Dockerfile .  
+          docker push ghcr.io/tanpopoko/c322-final-backend:latest 
